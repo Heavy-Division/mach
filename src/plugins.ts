@@ -76,6 +76,7 @@ export const writePackageSources = (logger: BuildLogger, instrument: Instrument)
                 const packagePath = path.join('/Pages/VCockpit/Instruments', process.env.PACKAGE_NAME, instrument.name);
                 const fileName = instrument.simulatorPackage.fileName ?? 'template';
                 const templateId = instrument.simulatorPackage.templateId ?? instrument.name;
+                const htmlTemplate = instrument.simulatorPackage.htmlTemplate ?? './templates/template.html';
 
                 await fs.writeFile(path.join(packageTarget, `${fileName}.css`), css);
                 await fs.writeFile(
@@ -90,7 +91,7 @@ export const writePackageSources = (logger: BuildLogger, instrument: Instrument)
                 );
                 await fs.writeFile(
                     path.join(packageTarget, `${fileName}.html`),
-                    await renderFile(path.join(__dirname, './templates/template.html'), {
+                    await renderFile(path.join(__dirname, htmlTemplate), {
                         templateId,
                         mountElementId: instrument.simulatorPackage.type === 'react'
                             ? 'MSFS_REACT_MOUNT'
