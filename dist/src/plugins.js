@@ -77,7 +77,7 @@ const writePackageSources = (logger, instrument) => ({
                 const packagePath = path_1.default.join('/Pages/VCockpit/Instruments', process.env.PACKAGE_NAME, instrument.name);
                 const fileName = (_a = instrument.simulatorPackage.fileName) !== null && _a !== void 0 ? _a : 'template';
                 const templateId = (_b = instrument.simulatorPackage.templateId) !== null && _b !== void 0 ? _b : instrument.name;
-                const htmlTemplate = (_c = instrument.simulatorPackage.htmlTemplate) !== null && _c !== void 0 ? _c : './templates/template.html';
+                const htmlTemplate = (_c = instrument.simulatorPackage.htmlTemplate) !== null && _c !== void 0 ? _c : path_1.default.join(__dirname, './templates/template.html');
                 yield promises_1.default.writeFile(path_1.default.join(packageTarget, `${fileName}.css`), css);
                 yield promises_1.default.writeFile(path_1.default.join(packageTarget, `${fileName}.js`), instrument.simulatorPackage.type === 'react'
                     ? yield (0, template_file_1.renderFile)(path_1.default.join(__dirname, './templates/reactTemplate.cjs'), {
