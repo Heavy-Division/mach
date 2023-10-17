@@ -86,7 +86,7 @@ const writePackageSources = (logger, instrument) => ({
                         instrumentName: `${process.env.PACKAGE_NAME.toLowerCase()}-${templateId.toLowerCase()}`,
                     })
                     : js);
-                yield promises_1.default.writeFile(path_1.default.join(packageTarget, `${fileName}.html`), yield (0, template_file_1.renderFile)(path_1.default.join(__dirname, htmlTemplate), {
+                yield promises_1.default.writeFile(path_1.default.join(packageTarget, `${fileName}.html`), yield (0, template_file_1.renderFile)(htmlTemplate, {
                     templateId,
                     mountElementId: instrument.simulatorPackage.type === 'react'
                         ? 'MSFS_REACT_MOUNT'

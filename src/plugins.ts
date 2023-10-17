@@ -91,7 +91,7 @@ export const writePackageSources = (logger: BuildLogger, instrument: Instrument)
                 );
                 await fs.writeFile(
                     path.join(packageTarget, `${fileName}.html`),
-                    await renderFile(path.join(__dirname, htmlTemplate), {
+                    await renderFile(htmlTemplate, {
                         templateId,
                         mountElementId: instrument.simulatorPackage.type === 'react'
                             ? 'MSFS_REACT_MOUNT'
