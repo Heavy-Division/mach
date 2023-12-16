@@ -61,6 +61,8 @@ export interface Instrument {
 
     /** esbuild plugins to include for only this instrument (<https://github.com/esbuild/community-plugins>) */
     plugins?: Plugin[];
+
+    external?: string[];
 }
 
 export interface MachConfig {
@@ -110,6 +112,8 @@ export const InstrumentSchema: z.ZodType<Instrument> = z.lazy(() => z.object({
     resolve: z.string().optional(),
 
     plugins: z.array(PluginSchema).optional(),
+
+    external: z.array(z.string()).optional(),
 }));
 
 export const MachConfigSchema = z.object({

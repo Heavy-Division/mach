@@ -49,6 +49,7 @@ export interface Instrument {
     resolve?: string;
     /** esbuild plugins to include for only this instrument (<https://github.com/esbuild/community-plugins>) */
     plugins?: Plugin[];
+    external?: string[];
 }
 export interface MachConfig {
     /** Name of package, used for bundling simulator packages. */

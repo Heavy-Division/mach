@@ -40,7 +40,7 @@ function build(config, instrument, logger, module = false) {
             absWorkingDir: process.cwd(),
             entryPoints: [instrument.index],
             outfile: path_1.default.join(process.env.BUNDLES_DIR, instrument.name, module ? '/module/module.mjs' : 'bundle.js'),
-            external: ['/Images/*', '/Fonts/*'],
+            external: (instrument.external ? [...['/Images/*', '/Fonts/*'], ...instrument.external] : ['/Images/*', '/Fonts/*']),
             incremental: true,
             metafile: true,
             bundle: true,

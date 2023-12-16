@@ -38,6 +38,7 @@ exports.InstrumentSchema = zod_1.z.lazy(() => zod_1.z.object({
     modules: zod_1.z.array(exports.InstrumentSchema).optional(),
     resolve: zod_1.z.string().optional(),
     plugins: zod_1.z.array(exports.PluginSchema).optional(),
+    external: zod_1.z.array(zod_1.z.string()).optional(),
 }));
 exports.MachConfigSchema = zod_1.z.object({
     packageName: zod_1.z.string(),
