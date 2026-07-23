@@ -205,7 +205,10 @@ const ESBUILD_WARNINGS = [
     "sections-in-source-map",
     "missing-source-map",
     "unsupported-source-map-comment",
-    "package.json",
+    // "package.json" is intentionally omitted: it fires for dependency exports/main
+    // config quirks (e.g. a `types` condition ordered after `import`/`require`) that
+    // consumers cannot fix and that never affect the bundle. Promoting it to an error
+    // under werror would break builds for reasons outside the project's control.
     "tsconfig.json",
 ];
 
