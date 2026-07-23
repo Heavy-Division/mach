@@ -9,6 +9,7 @@
 	},
 	"scripts": {
 		"build": "tsc && copyfiles --flat src/templates/* dist/templates",
+		"prepare": "npm run build",
 		"watch": "nodemon --watch src/index.ts --watch src --ext * --exec \"yarn build || exit 1\"",
 		"lint": "biome check",
 		"lint:fix": "biome check --fix --unsafe"
