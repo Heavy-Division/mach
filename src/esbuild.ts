@@ -30,7 +30,7 @@ function getBuildOptions(args: MachArgs, instrument: Instrument): BuildOptions {
         metafile: true,
         bundle: true,
         loader: { ".otf": "file", ".ttf": "file", ...args.config.esbuild?.loader },
-        external: ["/Images/*", "/Fonts/*", ...(args.config.esbuild?.external ?? [])],
+        external: ["/Images/*", "/Fonts/*", ...(args.config.esbuild?.external ?? []), ...(instrument.external ?? [])],
         plugins: [environment(instrument), ...(args.config.esbuild?.plugins ?? [])],
     };
 

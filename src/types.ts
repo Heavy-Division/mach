@@ -60,6 +60,9 @@ export interface Instrument {
     modules?: Instrument[];
     /** (Required for instruments included as `modules`) Import name to resolve to the bundled module. */
     resolve?: string;
+
+    /** Additional paths to mark as external for this instrument's esbuild bundle. */
+    external?: string[];
 }
 
 export interface MachConfig {
@@ -136,6 +139,7 @@ export const InstrumentSchema: z.ZodType<Instrument> = z.lazy(() =>
 
         modules: z.array(InstrumentSchema).optional(),
         resolve: z.string().optional(),
+        external: z.array(z.string()).optional(),
     }),
 );
 
